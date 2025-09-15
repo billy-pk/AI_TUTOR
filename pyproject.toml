@@ -1,0 +1,11 @@
+[project]
+name = "teacher"
+version = "0.1.0"
+description = "a project to create an agent that can teach you anything"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "chainlit>=2.8.0",
+    "openai-agents>=0.3.0",
+    "tavily-python>=0.7.12",
+]
