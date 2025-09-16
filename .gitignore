@@ -13,4 +13,5 @@ wheels/
 # Ignore Chainlit files
 .chainlit/
 
+uv.toml
 
