@@ -10,7 +10,7 @@ wheels/
 .venv
 # Env variables
 .env
-# Ignore Chainlit's auto-generated translation files
-.chainlit/translations
-.chainlit
+# Ignore Chainlit files
+.chainlit/
+
 
