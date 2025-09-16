@@ -4,9 +4,12 @@ import os
 import chainlit as cl
 from tavily import AsyncTavilyClient
 
-
 from agents import Agent, Runner, OpenAIChatCompletionsModel, AsyncOpenAI, SQLiteSession, function_tool
+
+from agents import set_tracing_disabled
+set_tracing_disabled(disabled = True)
 import asyncio
+
 from openai.types.responses import ResponseTextDeltaEvent
 
 tavily_client = AsyncTavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
@@ -59,7 +62,6 @@ async def web_search(query: str) -> dict:
         response (dict) : The search results from Tavily
     """
     response = await tavily_client.search(query, max_results=3)
-    print("-------",response)
     results = response.get("results", [])
     if results:
         top_result = results[0]
@@ -71,22 +73,6 @@ async def web_search(query: str) -> dict:
     return {"error": "No results found."}
 
 tutor_agent = Agent("AI Tutor", instructions =prompt2, model = model, tools = [web_search])
-session = SQLiteSession(session_id = "abc123")
-
-# async def main(user_input: str):
-#     result = Runner.run_streamed(tutor_agent, input = user_input, session = session)
-#     #print(result.final_output)
-#     async for event in result.stream_events():
-#         if event.type == "raw_response_event" and isinstance(event.data, ResponseTextDeltaEvent):
-#             print(event.data.delta, end="", flush=True)
-
-# if __name__ == "__main__":
-#     print("\nEnter your question or type 'exit' to quit:\n")
-#     while True:
-#         user_input = input("\n[You]: ")
-#         if user_input.lower() in ["exit", "quit"]:
-#             break
-#         asyncio.run(main(user_input))
 
 
 # UI
@@ -109,6 +95,7 @@ async def handle_message(message: cl.Message):
     # Create an empty Chainlit message for streaming response, later messages will be added to it
     msg = cl.Message(content="")
     await msg.send()
+    await msg.stream_token(" ") # to show typing indicator
 
     # Stream response from the agent
     result =  Runner.run_streamed(tutor_agent, input= chat_history)
