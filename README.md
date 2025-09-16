@@ -13,18 +13,31 @@ Built with the **[OpenAI Agents SDK](https://openai.github.io/openai-agents-pyth
 - 🧠 **OpenAI Agents SDK** – Handles reasoning, tool selection, and response generation.  
 
 
-###  Installation
+##  Installation
 
-# Clone the repository
+### Clone the repository
 git clone https://github.com/your-username/ai_tutor.git
+
 cd ai_tutor
 
-# Create and activate a virtual environment
+### Create and activate a virtual environment
 uv venv
-Windows: .venv\\Scripts\\activate
 
-# Install dependencies
+Windows: .venv\Scripts\activate
+
+### Install dependencies
+
 uv sync
+
+### Set Environment Variables
+
+Create a .env file and set environment variables.
+
+### Run Locally
+
+uv run chainlit run study_mode_agent.py 
+
+Open your browser at http://localhost:8000/
 
 
 
