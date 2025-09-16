@@ -16,7 +16,7 @@ Built with the **[OpenAI Agents SDK](https://openai.github.io/openai-agents-pyth
 ##  Installation
 
 ### Clone the repository
-git clone https://github.com/your-username/ai_tutor.git
+git clone https://github.com/billy-pk/ai_tutor.git
 
 cd ai_tutor
 
