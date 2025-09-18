@@ -25,7 +25,6 @@ cd ai_tutor
 
 ``` bash
 uv venv 
- 
 .venv\Scripts\activate
 ```
 
