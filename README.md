@@ -23,9 +23,11 @@ cd ai_tutor
 
 ### Create and activate a virtual environment
 
+``` bash
 uv venv 
  
-Windows: .venv\Scripts\activate
+.venv\Scripts\activate
+```
 
 ### Install dependencies
 
@@ -37,7 +39,9 @@ Create a .env file and set environment variables.
 
 ### Run Locally
 
+``` bash
 uv run chainlit run study_mode_agent.py 
+```
 
 Open your browser at http://localhost:8000/
 
