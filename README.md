@@ -16,13 +16,15 @@ Built with the **[OpenAI Agents SDK](https://openai.github.io/openai-agents-pyth
 ##  Installation
 
 ### Clone the repository
+``` bash
 git clone https://github.com/billy-pk/ai_tutor.git
-
 cd ai_tutor
+```
 
 ### Create and activate a virtual environment
-uv venv
 
+uv venv 
+ 
 Windows: .venv\Scripts\activate
 
 ### Install dependencies
